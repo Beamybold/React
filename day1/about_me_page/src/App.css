@@ -1,9 +1,70 @@
+*{
+  margin: 0;
+  padding: 0;
+  
+}
 .app {
+
   font-family: Arial, Helvetica, sans-serif;
   background-color: #ffffff;
   color: #004d00;
   padding: 20px;
-  max-height:;
- 
-  
+}
+
+.header {
+  text-align: center;
+  background-color: #008000;
+  color: white;
+  padding: 20px;
+}
+
+
+.header p {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  background-color: #008000;
+  color: white;
+  padding: 20px;
+}
+
+.footer {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+}
+.footer li {
+  display: inline;
+  margin: 0 10px;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration:underline;
+}
+
+.location {
+  margin-top: 20px;
+}
+
+
+
+
+.skills {
+  margin-top: 20px;
+}
+
+ul {
+ padding-left: 20px;
 }
