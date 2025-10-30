@@ -1,16 +1,11 @@
-function ExpenseList({ expenses, setExpenses, categoryFilter, dateFilter }) {
-  const filtered = expenses.filter(exp => {
-    const matchCategory = categoryFilter === 'All' || exp.category === categoryFilter;
-    const matchDate =
-      (!dateFilter.start || new Date(exp.date) >= new Date(dateFilter.start)) &&
-      (!dateFilter.end || new Date(exp.date) <= new Date(dateFilter.end));
-    return matchCategory && matchDate;
-  });
 
+import ExpenseItem from "./ExpenseItem";
+
+function ExpenseList({ expenses, onDelete, onEdit }) {
   return (
-    <div>
-      {filtered.map(exp => (
-        <ExpenseItem key={exp.id} expense={exp} setExpenses={setExpenses} />
+    <div className="expense-list">
+      {expenses.map((e) => (
+        <ExpenseItem key={e.id} expense={e} onDelete={onDelete} onEdit={onEdit} />
       ))}
     </div>
   );

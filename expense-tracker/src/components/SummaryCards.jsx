@@ -1,21 +1,37 @@
+
 function SummaryCards({ expenses }) {
-  const total = expenses.reduce((sum, e) => sum + e.amount, 0);
-  const categories = ['Food', 'Transport', 'Bills', 'Entertainment', 'Others'];
+  const totalExpenses = expenses.reduce((sum, e) => sum + Number(e.amount), 0);
+
+   const categories = ["Food", "Transport", "Electricity", "Bills", "Rent", "Entertainment", "Others",];
+
+
+  const categoryTotals = categories.map((category) => {
+    const categorySum = expenses
+      .filter((e) => e.category?.toLowerCase() === category.toLowerCase())
+      .reduce((sum, e) => sum + Number(e.amount), 0);
+
+    const percent = totalExpenses > 0
+      ? ((categorySum / totalExpenses) * 100).toFixed(1)
+      : "0.0";
+
+    return {
+      category,
+      amount: categorySum,
+      percent,
+    };
+  });
 
   return (
     <div className="summary-cards">
-      {categories.map(cat => {
-        const catTotal = expenses.filter(e => e.category === cat).reduce((sum, e) => sum + e.amount, 0);
-        const percent = total ? ((catTotal / total) * 100).toFixed(1) : 0;
-        return (
-          <div key={cat} className={`card ${cat.toLowerCase()}`}>
-            <h4>{cat}</h4>
-            <p>₦{catTotal}</p>
-            <p>{percent}%</p>
-          </div>
-        );
-      })}
+      {categoryTotals.map(({ category, amount, percent }) => (
+        <div key={category} className={`summary-card ${category.toLowerCase()}`}>
+          <h4>{category}</h4>
+          <p>₦{amount.toLocaleString()}</p>
+          <p>{percent}% of total</p>
+        </div>
+      ))}
     </div>
   );
 }
+
 export default SummaryCards;

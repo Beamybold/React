@@ -1,18 +1,32 @@
-function IncomeTracker({ setIncome }) {
-  const [source, setSource] = useState('');
-  const [amount, setAmount] = useState('');
+import { useState } from "react";
 
-  const handleAdd = () => {
-    if (!source || amount <= 0) return;
-    setIncome(prev => [...prev, { source, amount: parseFloat(amount) }]);
-    setSource('');
-    setAmount('');
-  };
+function IncomeTracker({ onAddIncome }) {
+  const [amount, setAmount] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (amount <= 0) return;
+
+    onAddIncome({
+      id: Date.now(),
+      amount: parseFloat(amount),
+      date: new Date().toISOString().split("T")[0],
+    });
+
+    setAmount("");
+  }
 
   return (
-    <div>
-      {/* Inputs for source and amount */}
-    </div>
+    <form className="form" onSubmit={handleSubmit}>
+      <input
+        type="number"
+        placeholder="Add Income (₦)"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+        required
+      />
+      <button type="submit">Add Income</button>
+    </form>
   );
 }
 

@@ -1,19 +1,15 @@
-function ExpenseStats({ expenses, income }) {
-  const total = expenses.reduce((sum, e) => sum + e.amount, 0);
-  const highest = Math.max(...expenses.map(e => e.amount), 0);
-  const count = expenses.length;
-  const breakdown = {};
+import FormatNaira from "./FormatNaira";
 
-  expenses.forEach(e => {
-    breakdown[e.category] = (breakdown[e.category] || 0) + e.amount;
-  });
+function ExpenseStats({ expenses }) {
+  const total = expenses.reduce((sum, e) => sum + e.amount, 0);
+  const highest = Math.max(0, ...expenses.map((e) => e.amount));
+  const count = expenses.length;
 
   return (
-    <div>
-      <p>Total Spent: ₦{total}</p>
-      <p>Number of Expenses: {count}</p>
-      <p>Highest Expense: ₦{highest}</p>
-      {/* Breakdown per category */}
+    <div className="stats">
+      <div>Total Spent: {FormatNaira(total)}</div>
+      <div>Number of Expenses: {count}</div>
+      <div>Highest Expense: {FormatNaira(highest)}</div>
     </div>
   );
 }
