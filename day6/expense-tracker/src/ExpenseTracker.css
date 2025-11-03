@@ -14,8 +14,7 @@ body {
 
 
 .header {
-  display: flex;
-  justify-content: space-between;
+
   color: purple;
   text-align: center;
   margin-bottom: 20px;
@@ -35,7 +34,8 @@ p {
 }
 
 input, select {
-  padding: 10px;
+
+  padding: 5px;
   font-size: 16px;
   border: 1px solid rgb(54, 9, 54);
   border-radius: 4px;
@@ -68,6 +68,10 @@ button:hover {
 
 .food, .electricity, .rent, .others {
   background-color: #f0c9e6;
+}
+.electricity{
+  background-color: #b3abb1;
+
 }
 .transport, .bills, .entertainment{
   background-color: #d2f5a8;

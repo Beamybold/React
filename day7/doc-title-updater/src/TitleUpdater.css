@@ -1,0 +1,58 @@
+/* TitleUpdater.css */
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: #f9f9f9;
+}
+
+.title-updater {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.title-updater h2 {
+  margin-bottom: 15px;
+}
+
+.title-updater input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.title-updater .preview {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.title-updater .counter {
+  margin-top: 5px;
+  color: gray;
+}
+
+.title-updater .counter.limit-reached {
+  color: red;
+}
+
+.title-updater button {
+  margin-top: 15px;
+  padding: 8px 12px;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.title-updater button:hover {
+  background-color: #005fa3;
+}
