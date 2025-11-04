@@ -12,8 +12,8 @@ import SummaryCards from "./components/SummaryCards";
 import "./ExpenseTracker.css";
 
 function App() {
-  const [expenses, setExpenses] = useState([]);
   const [income, setIncome] = useState([]);
+  const [expenses, setExpenses] = useState([]);
   const [budget, setBudget] = useState(0);
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [dateFilter, setDateFilter] = useState({ from: null, to: null });
